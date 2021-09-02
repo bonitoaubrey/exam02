@@ -1,14 +1,14 @@
 #include "get_next_line.h"
 
-char *ft_strjoin(char *line, char c)
+char	*ft_strjoin(char *line, char c)
 {
-	char *tmp;
-	int i = 0, j = 0;
+	char	*tmp;
+	int	i = 0, j = 0;
 	if (!line)
 	{
 		tmp = malloc(2);
 		tmp[0] = c;
-		tmp[1] = 0;
+		tmp[1] = '\0';
 	}
 	else
 	{
@@ -21,16 +21,16 @@ char *ft_strjoin(char *line, char c)
 			j++;
 		}
 		tmp[j++] = c;
-		tmp[j] = 0;
+		tmp[j] = '\0';
 		free(line);
 	}
 	return (tmp);
 }
 
-int get_next_line(char **line)
+int	get_next_line(char **line)
 {
-	char *tmp = NULL;
-	char c = 0;
+	char	*tmp = NULL;
+	char	c = 0;
 	if (tmp == NULL)
 		tmp = ft_strjoin(tmp, '\0');
 	while (read(0, &c, 1) && c != '\n')
