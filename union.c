@@ -1,19 +1,18 @@
 #include <unistd.h>
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	int used[255] = {0};
-	int i = 1, j = 0;
-	if(argc == 3)
+	int	used[255] = {0}, i = 1, j;
+	if (argc == 3)
 	{
-		while(i < 3)
+		while (i < 3)
 		{
 			j = 0;
-			while(argv[i][j])
+			while (argv[i][j])
 			{
-				if(!used[(unsigned char)argv[i][j]])
+				if (!used[(unsigned char)argv[i][j]])
 				{
-				used[(unsigned char)argv[i][j]] = 1;
+					used[(unsigned char)argv[i][j]] = 1;
 					write(1, &argv[i][j], 1);
 				}
 				j++;
