@@ -3,12 +3,16 @@
 char	*ft_strjoin(char *line, char c)
 {
 	char	*tmp;
-	int	i = 0, j = 0;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
 	if (!line)
 	{
 		tmp = malloc(2);
 		tmp[0] = c;
-		tmp[1] = '\0';
+		tmp[1] = 0;
 	}
 	else
 	{
@@ -20,14 +24,14 @@ char	*ft_strjoin(char *line, char c)
 			tmp[j] = line[j];
 			j++;
 		}
-		tmp[j++] = c;
-		tmp[j] = '\0';
-		free(line);
+		tmp[j] = c;
+		tmp[++j] = 0;
+		free (line);
 	}
 	return (tmp);
 }
 
-int	get_next_line(char **line)
+int get_next_line(char **line)
 {
 	char	*tmp = NULL;
 	char	c = 0;
@@ -38,3 +42,4 @@ int	get_next_line(char **line)
 	*line = tmp;
 	return (c == '\n');
 }
+

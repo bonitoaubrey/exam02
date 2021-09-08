@@ -2,7 +2,11 @@
 
 int	main(int argc, char *argv[])
 {
-	int used[255] = {0}, i = 2, j;
+	char	c[255] = {0};
+	int		i;
+	int		j;
+
+	i = 2;
 	if (argc == 3)
 	{
 		while (i > 0)
@@ -10,12 +14,12 @@ int	main(int argc, char *argv[])
 			j = 0;
 			while (argv[i][j])
 			{
-				if (i == 2 && !used[(unsigned char)argv[i][j]])
-					used[(unsigned char)argv[i][j]] = 1;
-				else if (i == 1 && used[(unsigned char)argv[i][j]] == 1)
+				if (i == 2 && !c[argv[i][j]])
+					c[argv[i][j]] = 1;
+				else if (i == 1 && c[argv[i][j]] == 1)
 				{
 					write(1, &argv[i][j], 1);
-					used[(unsigned char)argv[i][j]] = 2;
+					c[argv[i][j]] = 0;
 				}
 				j++;
 			}
